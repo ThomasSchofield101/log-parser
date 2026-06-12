@@ -1,13 +1,15 @@
 #ifndef LOG_LOADER_H
 #define LOG_LOADER_H
 
+#include "log_entry.h"
+
 /**
 * @brief Parses a log file and processes each line.
 * @param filename The path to the log file to parse.
 * @param out_count A pointer to an integer where the number of log entries will be stored.
 * @return An array of LogEntry structures containing the parsed log entries, or NULL on failure
 */
-LogEntry* load_log_file (const char *filename, int *out_count);
+LogEntry* load_log_file(const char *filename, int *out_count);
 
 /**
 * @brief Reallocates the log entries array to accommodate more entries.
