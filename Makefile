@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -std=c11 -g -Iinclude
 TARGET = app
 
 all:
-	@echo "No build configured yet"
+	gcc $(CFLAGS) src/*.c -o $(TARGET)
 
 clean:
 	rm -f $(TARGET)

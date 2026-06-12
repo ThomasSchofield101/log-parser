@@ -4,7 +4,17 @@
 #include "log_loader.h"
 #include "log_entry.h"
 
-LogEntry* load_log_file (const char *filename, int *out_count) {
+LogEntry* realloc_entries(LogEntry *entries, size_t *new_size) {
+    *new_size *= 2; // Double the size for the new allocation
+    LogEntry *new_entries = realloc(entries, *new_size * sizeof(LogEntry));
+    if (new_entries == NULL) {
+        fprintf(stderr, "Error: could not reallocate memory for log entries\n");
+        return NULL;
+    }
+    return new_entries;
+}
+
+LogEntry* load_log_file(const char *filename, int *out_count) {
     if (filename == NULL) {
         fprintf(stderr, "Error: filename cannot be NULL\n");
         return NULL; // Handle null filename by returning NULL
@@ -64,15 +74,4 @@ LogEntry* load_log_file (const char *filename, int *out_count) {
         }
         
 }
-
-LogEntry* realloc_entries(LogEntry *entries, size_t *new_size) {
-    *new_size *= 2; // Double the size for the new allocation
-    LogEntry *new_entries = realloc(entries, *new_size * sizeof(LogEntry));
-    if (new_entries == NULL) {
-        fprintf(stderr, "Error: could not reallocate memory for log entries\n");
-        return NULL;
-    }
-    return new_entries;
-}
-
 

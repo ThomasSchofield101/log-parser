@@ -1,0 +1,10 @@
+# Compiled executables
+logparser
+*.exe
+*.out
+
+# Object files
+*.o
+
+#build directories
+build/
