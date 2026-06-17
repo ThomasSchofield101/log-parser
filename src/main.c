@@ -9,9 +9,9 @@
 
 void print_usage(void) {
     fprintf(stderr, "Usage: logparser [OPTIONS] <logfile>\n");
-    fprintf(stderr, " --level LEVEL     Filter by log level (INFO, WARN, ERROR)\n");
+    fprintf(stderr, " --level   LEVEL     Filter by log level (INFO, WARN, ERROR)\n");
     fprintf(stderr, " --keyword TEXT    Filter by keyword in message\n");
-    fprintf(stderr, " --output FILE     Write results to file\n");
+    fprintf(stderr, " --output  FILE     Write results to file\n");
 }
 
 void string_to_upper(char* string){
