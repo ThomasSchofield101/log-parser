@@ -6,5 +6,9 @@ logparser
 # Object files
 *.o
 
-#build directories
+# Build directories
 build/
+
+# Test Files
+*.log
+*.txt
