@@ -5,10 +5,27 @@ Read a log file, filter by severity and/or keyword, and print or append matching
 **Usage:** `logparser [OPTIONS] <logfile>` <br/>
 **Positional:** `<logfile>`: path to the input logfile
 
+## Project structure
+- `src/`            source files
+- `include/`        headers
+- `CMakeLists.txt`  CMake build config`
+- `Makefile`        legacy build system
+
 ## Build:
 **prereqs:** GCC or CLANG, make <br/>
 
-**Build:** make (produces logparser binary)
+**Build:** 
+### CMake (recommended):
+**Minimum version:** CMake 3.1 <br/>
+
+`cmake -S . -B build`, <br/>
+`cmake --build build`
+
+CMake builds output to `build/` (or `build/Debug` depending on generator).
+
+### Make (legacy fallback):
+`make`    <br/>
+Make builds output in project root.
 
 ## Options / CLI:
 **--level:** Filter by level; Valid values: INFO, WARN, ERROR. Case-insensitive. <br/>
@@ -45,7 +62,7 @@ Read a log file, filter by severity and/or keyword, and print or append matching
 
 ## Exit codes:
 **0:** success. <br/>
-**>0:** runtime failiure (invalid arguments, I/O error, memory allocation etc).
+**>0:** runtime failure (invalid arguments, I/O error, memory allocation etc).
 
 ## Performance / limitations:
 **Memory:** current implementation loads entries into memory. For very large logs, prefer streaming and filtering on-the-fly. <br/>
