@@ -11,7 +11,17 @@ add_executable(log-parser
     src/main.c
 )
 
+add_executable(test_runner
+    tests/test_runner.c
+    tests/test_log_entry.c
+    tests/unity/unity.c
+)
+
 target_include_directories(log-parser PRIVATE
+    include
+)
+
+target_include_directories(test_runner PRIVATE
     include
     tests/unity
 )
