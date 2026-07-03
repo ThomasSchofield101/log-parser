@@ -13,4 +13,5 @@ add_executable(log-parser
 
 target_include_directories(log-parser PRIVATE
     include
+    tests/unity
 )
